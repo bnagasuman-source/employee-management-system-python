@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Login | Employee Management System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page">
+  <main class="login-card">
+    <h1>Employee Management</h1>
+    <p class="muted">Sign in as admin to continue</p>
+    {% if error %}<div class="alert error">{{ error }}</div>{% endif %}
+    {% if logged_out %}<div class="alert success">You have been logged out</div>{% endif %}
+    <form action="{{ url_for('auth.login') }}" method="post">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" required autofocus autocomplete="username">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required autocomplete="current-password">
+      <button type="submit" class="btn primary full">Login</button>
+    </form>
+  </main>
+</body>
+</html>
